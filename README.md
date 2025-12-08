@@ -21,7 +21,7 @@ A comprehensive blogging platform designed to deliver engaging content with a mo
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/blog-site.git
+git clone https://github.com/sijanbroo/blog-site.git
 cd blog-site
 npm install
 ```
@@ -66,7 +66,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-For issues or questions, please [open an issue](https://github.com/yourusername/blog-site/issues) on GitHub.
+For issues or questions, please [open an issue](hhttps://github.com/sijanbroo/Blog-Site?tab=readme-ov-file) on GitHub.
 
 ---
 
