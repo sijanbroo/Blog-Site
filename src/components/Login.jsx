@@ -18,13 +18,10 @@ function Login() {
 
   const login = async (data) => {
     setError("");
-    console.log("Login form submitted with data:", data);
     try {
       const session = await authService.login(data);
-      console.log("Login session:", session);
       if (session) {
         const userData = await authService.getCurrentUser();
-        console.log("User data:", userData);
         dispatch(authLogin({ userData }));
         navigate("/");
       }
@@ -34,9 +31,7 @@ function Login() {
     }
   };
 
-  const onError = (errors) => {
-    console.log("Form validation errors:", errors);
-  };
+  const onError = (errors) => {};
   return (
     <div className="flex items-center justify-center w-full py-8">
       <div

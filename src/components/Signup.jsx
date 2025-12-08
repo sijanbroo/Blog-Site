@@ -29,8 +29,6 @@ function Signup() {
     setError("");
     setLoading(true);
 
-    console.log("Form submitted with data:", formData);
-
     // Basic validation
     if (!formData.name || !formData.email || !formData.password) {
       setError("All fields are required");
@@ -45,19 +43,14 @@ function Signup() {
     }
 
     try {
-      console.log("Calling createAccount...");
       const result = await authService.createAccount(formData);
-      console.log("Account created:", result);
 
       if (result) {
         const userData = await authService.getCurrentUser();
-        console.log("User data fetched:", userData);
 
         if (userData) {
-          console.log("Dispatching login with user data");
           dispatch(login({ userData }));
         } else {
-          console.log("No user data, but proceeding anyway");
         }
         navigate("/");
       }

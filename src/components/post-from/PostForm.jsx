@@ -58,9 +58,7 @@ function PostForm({ post }) {
 
       try {
         const file = await appwriteService.uploadFile(data.image[0]);
-        console.log("File uploaded:", file);
         if (file && file.$id) {
-          console.log("User data:", userData);
           if (!userData || !userData.$id) {
             alert("User not authenticated. Please log in again.");
             return;
@@ -73,9 +71,7 @@ function PostForm({ post }) {
             userId: userData.$id,
             featuredImage: file.$id,
           });
-          console.log("Post created:", dbPost);
           if (dbPost && dbPost.$id) {
-            console.log("Navigating to:", `/post/${dbPost.$id}`);
             navigate(`/post/${dbPost.$id}`);
           } else {
             alert("Post created but response invalid. Redirecting to home.");

@@ -9,18 +9,17 @@ function AllPosts() {
     appwriteService.getPosts([]).then((posts) => {
       if (posts) {
         setPosts(posts.documents);
-        console.log(posts.documents);
       }
     });
   }, []);
 
   return (
-    <div className="w-full py-8">
+    <div className="w-full py-8 px-6">
       <Container>
-        <div className="flex flex-wrap">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-max">
           {posts.map((post) => {
             return (
-              <div key={post.$id} className="p-2 w-1/4">
+              <div key={post.$id}>
                 <PostCard {...post} />
               </div>
             );

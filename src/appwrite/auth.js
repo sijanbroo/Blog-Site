@@ -14,8 +14,6 @@ export class AuthService {
 
   async createAccount({ email, password, name }) {
     try {
-      console.log("Creating account with:", { email, name });
-
       // account.create(userId, email, password, name)
       const userAccount = await this.account.create(
         ID.unique(),
@@ -24,13 +22,9 @@ export class AuthService {
         name
       );
 
-      console.log("Account creation response:", userAccount);
-
       if (userAccount) {
         // Log in immediately after account creation
-        console.log("Logging in user after account creation");
-        const session = await this.login({ email, password });
-        console.log("Session created:", session);
+        await this.login({ email, password });
         return userAccount;
       }
 
@@ -43,12 +37,10 @@ export class AuthService {
 
   async login({ email, password }) {
     try {
-      console.log("Attempting login with email:", email);
       const session = await this.account.createEmailPasswordSession(
         email,
         password
       );
-      console.log("Login session response:", session);
       return session;
     } catch (error) {
       console.error("Login failed:", error);
@@ -59,7 +51,6 @@ export class AuthService {
   async getCurrentUser() {
     try {
       const user = await this.account.get();
-      console.log("✅ User authenticated:", user.email);
       return user;
     } catch (error) {
       // Silently return null for unauthenticated users (401)
