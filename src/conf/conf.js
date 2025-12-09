@@ -7,6 +7,7 @@ const conf = {
   emailJsPublicKey: String(import.meta.env.VITE_EMAILJS_PUBLIC_KEY),
   emailJsServiceId: String(import.meta.env.VITE_EMAILJS_SERVICE_ID),
   emailJsTemplateId: String(import.meta.env.VITE_EMAILJS_TEMPLATE_ID),
+  tinymceApiKey: String(import.meta.env.VITE_TINYMCE_API_KEY),
 };
 
 export default conf;
