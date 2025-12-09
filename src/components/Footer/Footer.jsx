@@ -134,7 +134,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center mb-4 py-2.5 px-4 sm:px-6">
+      <div className="flex justify-center mb-8 pt-14 px-4 sm:px-6">
         <p className="text-xs sm:text-sm text-gray-300 text-center">
           &copy; Copyright {new Date().getFullYear()}. All Rights Reserved by
           Sijanbroo.
