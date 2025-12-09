@@ -35,6 +35,11 @@ function Header() {
       slug: "/add-post",
       active: authStatus,
     },
+    {
+      name: "Contact",
+      slug: "/contact",
+      active: true,
+    },
   ];
 
   const handleNavClick = (slug) => {
