@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import "./animations.css";
 import { useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
 import authService from "./appwrite/auth";
 import { login, logout } from "./store/authSlice";
-import { Footer, Header } from "./components";
+import { Footer, Header, LoadingSpinner, NavigationLoader } from "./components";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -30,7 +31,8 @@ function App() {
   }, [dispatch]);
 
   return !loading ? (
-    <div className="min-h-screen flex flex-wrap content-between bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen flex flex-wrap content-between bg-linear-to-br from-slate-900 via-purple-900 to-slate-900">
+      <NavigationLoader />
       <div className="w-full block">
         <Header />
         <main>
@@ -40,9 +42,7 @@ function App() {
       </div>
     </div>
   ) : (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <div className="text-white text-2xl">Loading...</div>
-    </div>
+    <LoadingSpinner />
   );
 }
 

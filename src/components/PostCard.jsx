@@ -1,8 +1,11 @@
 import React from "react";
 import service from "../appwrite/config";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 function PostCard({ $id, title, featuredImage }) {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
   // Get the preview URL - Appwrite returns a URL object
   const imageUrl = service.getFilePreview(featuredImage);
   const fallbackImage =
@@ -10,7 +13,12 @@ function PostCard({ $id, title, featuredImage }) {
 
   return (
     <Link to={`/post/${$id}`} className="block h-full">
-      <div className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-lg shadow-purple-900/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-purple-500/30">
+      <div
+        ref={ref}
+        className={`group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-lg shadow-purple-900/20 transition-all duration-900 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        } hover:-translate-y-1 hover:shadow-purple-500/30`}
+      >
         <div className="absolute inset-0 bg-linear-to-br from-purple-500/10 via-transparent to-pink-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
         <div className="relative mb-4 overflow-hidden rounded-xl border border-white/10">
