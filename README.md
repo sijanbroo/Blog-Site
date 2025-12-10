@@ -1,4 +1,4 @@
-# Mega Blog
+# Blog-Site
 
 A modern, feature-rich blogging platform built with React and Appwrite, offering a seamless content creation and management experience.
 
